@@ -37,14 +37,52 @@ public class Main {
         }
     }
 
+    public static void reversal(int[] name) {
+        for (int i = name.length - 1; i >= 0; i--) {
+            System.out.print(name[i]);
+        }
+    }
 
+    public static void repeats(String rep) {
+        char[] result = rep.toCharArray();
+        for (int i = 0; i < result.length - 1; i++) {
+            if (result[i] == result[i + 1]) {
+                System.out.print("В строке есть дубли - " + result[i]);
+                break;
+            }
+            else {
+                System.out.println("Дублей нет");
 
+            }
+        }
+    }
+    public static int[] generateRandomArray() {
+        java.util.Random random = new java.util.Random();
+        int[] arr = new int[30];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = random.nextInt(100_000) + 100_000;
+        }
+        return arr;
+    }
+    public static int sum(int[] array){
+        int money = 0;
+        for (int i = 0; i < array.length; i++) {
+            money= money+array[i];
+        }
+        return money;
+    }
+    public static float averageSum (float total,int [] array){
+        float avarage = total/ array.length;
+        return avarage;
+    }
 
     public static void main(String[] args) {
         task1();
         task2();
         task3();
-
+        task4();
+        task5();
+        task6();
     }
 
     public static void task1() {
@@ -67,7 +105,29 @@ public class Main {
         deliveryDays(deliveryDistance, deliveryTime);
     }
 
+    public static void task4() {
+        System.out.println("Повышенный уровень. Задание 4");
+        int[] reverseFullName = {3, 2, 1, 6, 5};
+        reversal(reverseFullName);
+        System.out.println();
+    }
 
+    public static void task5() {
+        System.out.println("Повышенный уровень. Задание 5");
+        String one = "aabccddefgghiijjkk";
+        repeats(one);
+        System.out.println();
+
+    }
+    public static void task6() {
+        System.out.println("Повышенный уровень. Задание 6");
+        int[] arr = generateRandomArray();
+        sum(arr);
+        int total = sum(arr);
+        averageSum(total,arr);
+        float averageFinal = averageSum(total,arr);
+        System.out.println("Средняя сумма трат за месяц составила " + averageFinal + " рублей");
+    }
 
 }
 
